@@ -6,13 +6,14 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>BMI 計算器</h1>
-  <label>身高（cm）：<input type="number" id="height" /></label><br />
-  <label>體重（kg）：<input type="number" id="weight" /></label><br />
-  <button onclick="calculateBMI()">計算</button>
-
-  <div id="result"></div>
-
-  <script src="script.js"></script>
-</body>
+    <div class="container">
+      <h1>BMI 計算器</h1>
+      <input type="number" id="height" placeholder="請輸入身高 (cm)">
+      <input type="number" id="weight" placeholder="請輸入體重 (kg)">
+      <button onclick="calculateBMI()">計算 BMI</button>
+      <div id="result"></div>
+    </div>
+  
+    <script src="script.js"></script>
+  </body>
 </html>

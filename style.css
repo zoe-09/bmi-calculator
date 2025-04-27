@@ -1,36 +1,79 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f1f1f1;
-    text-align: center;
-    padding: 40px;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #333;
   }
   
   .container {
-    background-color: #fff;
-    padding: 20px;
-    margin: auto;
-    border-radius: 10px;
-    max-width: 300px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    text-align: center;
+  }
+  
+  h1 {
+    margin-bottom: 24px;
+    font-size: 28px;
+    color: #444;
   }
   
   input {
-    width: 80%;
-    padding: 8px;
+    width: 100%;
+    padding: 10px;
     margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
   }
   
   button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    border: none;
+    background-color: #2575fc;
     color: white;
-    font-weight: bold;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    margin-top: 12px;
+    font-size: 16px;
     cursor: pointer;
-    margin-top: 10px;
+    transition: background 0.3s;
+  }
+  
+  button:hover {
+    background-color: #6a11cb;
   }
   
   #result {
     margin-top: 20px;
-    font-size: 18px;
-}
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+
+  /* 手機版 RWD 設計 */
+@media (max-width: 480px) {
+    .container {
+      width: 90%;
+      padding: 20px;
+    }
+  
+    h1 {
+      font-size: 24px;
+    }
+  
+    button {
+      font-size: 14px;
+      padding: 8px;
+    }
+  
+    input {
+      font-size: 14px;
+    }
+  }
+  
