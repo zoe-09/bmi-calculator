@@ -7,7 +7,7 @@ function calculateBMI() {
       return;
     }
   
-    // 儲存資料到 localStorage
+    // 儲存資料
     localStorage.setItem('height', height);
     localStorage.setItem('weight', weight);
   
@@ -26,19 +26,13 @@ function calculateBMI() {
       status = "肥胖";
     }
   
-    document.getElementById('result').innerHTML = `你的 BMI 是 ${bmi}，屬於【${status}】範圍。`;
-  }
+    // 計算建議體重範圍
+    const minWeight = (18.5 * heightInMeters * heightInMeters).toFixed(1);
+    const maxWeight = (24.9 * heightInMeters * heightInMeters).toFixed(1);
   
-  // 畫面載入時，自動填上上次的資料
-  window.onload = function() {
-    const savedHeight = localStorage.getItem('height');
-    const savedWeight = localStorage.getItem('weight');
-  
-    if (savedHeight) {
-      document.getElementById('height').value = savedHeight;
-    }
-    if (savedWeight) {
-      document.getElementById('weight').value = savedWeight;
-    }
+    document.getElementById('result').innerHTML = `
+      你的 BMI 是 ${bmi}，屬於【${status}】範圍。<br>
+      建議體重範圍：${minWeight} kg ～ ${maxWeight} kg
+    `;
   }
   
