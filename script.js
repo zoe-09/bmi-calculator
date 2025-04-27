@@ -1,30 +1,44 @@
 function calculateBMI() {
-    const height = parseFloat(document.getElementById("height").value) / 100;
-    const weight = parseFloat(document.getElementById("weight").value);
+    const height = document.getElementById('height').value;
+    const weight = document.getElementById('weight').value;
   
-    if (!height || !weight) {
-      document.getElementById("result").innerText = "請輸入正確的身高和體重。";
+    if (height === "" || weight === "") {
+      alert("請輸入身高和體重！");
       return;
     }
   
-    const bmi = weight / (height * height);
+    // 儲存資料到 localStorage
+    localStorage.setItem('height', height);
+    localStorage.setItem('weight', weight);
+  
+    const heightInMeters = height / 100;
+    const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(2);
+  
     let status = "";
   
     if (bmi < 18.5) {
       status = "過輕";
-    } else if (bmi < 24) {
+    } else if (bmi >= 18.5 && bmi <= 24.9) {
       status = "正常";
-    } else if (bmi < 27) {
+    } else if (bmi >= 25 && bmi <= 29.9) {
       status = "過重";
-    } else if (bmi < 30) {
-      status = "輕度肥胖";
-    } else if (bmi < 35) {
-      status = "中度肥胖";
     } else {
-      status = "重度肥胖";
+      status = "肥胖";
     }
   
-    document.getElementById("result").innerText =
-      `你的 BMI 是 ${bmi.toFixed(2)}，屬於「${status}」。`;
+    document.getElementById('result').innerHTML = `你的 BMI 是 ${bmi}，屬於【${status}】範圍。`;
+  }
+  
+  // 畫面載入時，自動填上上次的資料
+  window.onload = function() {
+    const savedHeight = localStorage.getItem('height');
+    const savedWeight = localStorage.getItem('weight');
+  
+    if (savedHeight) {
+      document.getElementById('height').value = savedHeight;
+    }
+    if (savedWeight) {
+      document.getElementById('weight').value = savedWeight;
+    }
   }
   
